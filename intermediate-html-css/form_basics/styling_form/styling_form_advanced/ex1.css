@@ -1,0 +1,48 @@
+body * {
+    box-sizing: border-box;
+    display: inline-block;
+}
+input[type="search"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20em;
+    height: 3em;
+    padding: 0.5em;
+    margin: 0;
+    border: 1px solid grey;
+    border-right: none;
+    font-size: 14px;
+    vertical-align: middle;
+}
+
+input[type="search"]:focus {
+    outline: 0;
+    border: 2px solid black;
+    border-right: none;
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+button[type="submit"] {
+    font-size: 14px;
+    height: 3em;
+    width: 3em;
+    margin: 0;
+    box-sizing: border-box;
+    vertical-align: middle;
+    border: 1px solid grey;
+    border-left: none;
+    background-color: transparent;
+}
+
+button[type="submit"]::after {
+    content: "🔍"
+}
+
+input[type="search"]:focus + button[type="submit"] {
+    border: 2px solid black;
+    border-left: none;
+}

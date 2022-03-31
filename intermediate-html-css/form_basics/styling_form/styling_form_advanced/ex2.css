@@ -1,0 +1,36 @@
+body {
+    background-color: #fff;
+    color: #333;
+    font: 1em / 1.4 Helvetica Neue, Helvetica, Arial, sans-serif;
+    padding: 1em;
+    margin: 0;
+}
+  
+* {
+    box-sizing: border-box;
+}
+
+ul {
+    list-style-type: none;
+    padding: 10px;
+}
+
+input {
+    position: relative;
+    appearance: none;
+    -webkit-appearance: none;
+    font-family: inherit;
+    font-size: 100%;
+    padding: 1px;
+    margin: 0;
+    width: 1em;
+    height: 1em;
+    border: 1px solid gray;
+    border-radius: 0.5em;
+    vertical-align: -2px;
+}
+
+input:checked {
+    border: 2px solid black;
+    background: black content-box;
+}
