@@ -13,16 +13,18 @@
         <li>
           <label for="uname">User name:</label>
           <input type="text" name="uname" id="uname" required
-            minlength="5" maxlength="20">
+            minlength="5" maxlength="20"
+            pattern="[a-z]\.[a-z0-9]{3,}">
         </li>
         <li>
           <label for="email">Email address:</label>
-          <input type="email" name="email" id="email" required>
+          <input type="email" name="email" id="email" required
+            pattern="\w+@bigcorp\.eu">
         </li>
         <li>
           <label for="phone">Phone number:</label>
-          <input type="number" name="phone" id="phone" required
-            maxlength="15">
+          <input type="text" name="phone" id="phone" required
+            pattern="\d{10}|(\d{3}(-|\s|\.)\d{3}(-|\s|\.)\d{4})">
         </li>
         <li>
           <label for="comment">Comment:</label>
