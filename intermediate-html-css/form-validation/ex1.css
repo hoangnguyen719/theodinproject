@@ -1,0 +1,17 @@
+
+      body {
+        background-color: #fff;
+        color: #333;
+        font: 1em / 1.4 Helvetica Neue, Helvetica, Arial, sans-serif;
+        padding: 1em;
+        margin: 0;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      input:invalid,
+      textarea:invalid {
+          border: 2px solid red;
+      }
