@@ -8,6 +8,10 @@ body, html {
   height: 100%;
   padding: 16px;
   box-sizing: border-box;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 1fr 2.5fr;
+  grid-template-rows: 1fr 1fr 5fr 1fr;
 }
 
 .container div {
@@ -21,14 +25,19 @@ body, html {
 
 .header {
   background-color: #FFDE22;
+  grid-column: 1 / -1;
 }
 
 .sidebar {
   background-color: #FF7755;
+  grid-column: 1;
+  grid-row: 2 / 4;
 }
 
 .nav {
   background-color: #00DDFF;
+  grid-column: 2;
+  grid-row: 2;
 }
 
 .article {
@@ -44,4 +53,6 @@ body, html {
 
 .footer {
   background-color: #393f4d;
+  grid-column: 1 / -1;
+  grid-row: span 1 / -1;
 }
