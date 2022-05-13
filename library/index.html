@@ -10,14 +10,37 @@
   <link rel="stylesheet" href="style/custom-style.css">
 </head>
 <body class="flex-row flex-center">
-  <div id="content">
+  <div id="content" class="flex-column flex-center">
     <p id="welcome">Welcome to The Odin's Library</p>
-    <div class="book">
-      <div class="title"></div>
-      <div class="book-info">
-        <div class="author"></div>
-        <div class="pages"></div>
-        <div class="isread"></div>
+    <div id="action" class="flex-row">
+      <form action="post" id="add-form" class="flex-column flex-center">
+        <div id="form-input" class="flex-column">
+          <div id="form-title" class="flex-column">
+            <input type="text" name="title" id="title">
+            <label for="title">Title</label>
+          </div>
+          <div id="form-author" class="flex-column">
+            <input type="text" name="author" id="author">
+            <label for="author">Author</label>
+          </div>
+          <div id="form-pages" class="flex-column">
+            <input type="number" name="pages" id="pages">
+            <label for="pages">Number of Pages</label>
+          </div>
+          <div id="form-title">
+            <input type="checkbox" name="read" id="read" value="read">
+            <label for="title">Finished Reading ?</label>
+          </div>
+        </div>
+        <button>Add</button>
+      </form>
+      <div id="book-list">
+        <div class="title">Book 1</div>
+        <div class="book-info">
+          <div class="author">Author 1</div>
+          <div class="pages">100</div>
+          <div class="isread">Finished (Y/N): N</div>
+        </div>
       </div>
     </div>
   </div>
