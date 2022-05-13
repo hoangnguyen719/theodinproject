@@ -1,0 +1,68 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--background-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  --default-text-color: black;
+  --project-title-font-size: 1.5rem;
+  --background-color: rgba(127, 255, 212, 0.342);
+  --background-color-off: rgba(127, 255, 212, 0.719);
+}
+
+body > div {
+  /* width: max(80%, 50rem); */
+  height: max(80%, 30rem);
+  display: flex;
+  flex-direction: column;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a,
+a:visited {
+  color: var(--default-text-color);
+}
+
+a:active {
+  color: blue;
+}
+
+#projects {
+  display: flex;
+  flex-direction: column;
+  width: clamp(60%, 60rem, 100%);
+}
+
+.project-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.project-item:hover {
+  background-color: var(--background-color-off);
+}
+
+.project-title {
+  font-size: var(--project-title-font-size);
+  font-weight: bold;
+}
+
+.project-urls {
+  display: flex;
+}
+
+.project-url-item {
+  font-size: 0.9rem;
+  padding: 0 1rem 0 1rem;
+  text-decoration: none;
+}
+
+.project-url-item:hover {
+  color: blue;
+}
