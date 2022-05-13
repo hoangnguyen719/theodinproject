@@ -2,17 +2,21 @@ body {
   width: 100vw;
   height: 100vh;
   background-color: var(--background-color);
+  color: var(--default-text-color);
   display: flex;
   justify-content: center;
   align-items: center;
-  --default-text-color: black;
+  --default-text-color: rgba(3, 63, 23, 0.973);
   --project-title-font-size: 1.5rem;
   --background-color: rgba(127, 255, 212, 0.342);
   --background-color-off: rgba(127, 255, 212, 0.719);
 }
 
+body * {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
 body > div {
-  /* width: max(80%, 50rem); */
   height: max(80%, 30rem);
   display: flex;
   flex-direction: column;
