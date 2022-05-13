@@ -1,0 +1,35 @@
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#body {
+  min-width: 100vh;
+  min-height: 100vh;
+  margin: 0;
+  background-color:gainsboro;
+}
+
+#grid-area {
+  background-color:antiquewhite;
+}
+
+.grid {
+  box-sizing: border-box;
+  margin: 0;
+  border: 1px solid black;
+  display: inline-block;
+}
+
+/* .grid:hover {
+  background-color: purple;
+} */
+
+.grid-row {
+  display: flex;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}

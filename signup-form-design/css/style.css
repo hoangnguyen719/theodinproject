@@ -1,0 +1,232 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto/Roboto-Light.woff')
+}
+
+html, body {
+    height: 100%;
+    width: auto;
+    --text-div-left-spacing: 2.5rem;
+    --property-vert-spacing: 2rem;
+    --text-font-size: 1rem;
+    --theme-color: #07410b;
+    --theme-color-off: #052e08;
+    --input-border: rgb(185, 181, 181);
+    --input-focus-border: #07520c;
+    --error-border-color: red;
+    --error-msg-background-color: #900;
+    --error-msg-text-color: white;
+}
+
+body * {
+    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+#background-area {
+    overflow: hidden;
+    height: 100%;
+    position: relative;
+    flex: 1;
+    background: center / cover no-repeat url("../images/soccer_field.jpg");
+}
+
+#smaller-background {
+    height: 15%;
+    width: 100%;
+    background: 50% 50% no-repeat url("../images/odin-lined.png"), #00000077;
+    background-size: auto 90%;
+    position: absolute;
+    top: 15%;
+}
+
+#text-div {
+    flex: 1.45;
+    gap: 50px;
+    justify-content: center;
+    width: clamp(25rem, 35rem, 45rem);
+}
+
+#intro-div {
+    gap: 3rem;
+}
+
+#intro-div-big {
+    font-size: calc(1.75*var(--text-font-size));
+    font-weight: 700;
+    gap: 1rem;
+}
+
+#intro-div-small {
+    font-size: calc(1.5*var(--text-font-size));
+    font-weight: 700;
+}
+
+#signup-form {
+    gap: 20px;
+}
+
+#signup-box {
+    box-shadow: 0px 6px 6px -2px lightgrey, 0px -4px 4px -2px lightgrey;
+    padding: 2rem;
+    padding-left: var(--text-div-left-spacing);
+}
+
+#signup-inner-box {
+    gap: var(--property-vert-spacing);
+    width: min(37rem, 90%)
+}
+
+#signup-inner-box > div {
+    gap: clamp(2rem, 4rem, 5%);
+    justify-content: space-between;
+}
+
+#phone::-webkit-inner-spin-button,
+#phone::-webkit-outer-spin-button {
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+#create-btn {
+    padding: 0.75rem 2.5rem;
+    color: white;
+    font-weight: bold;
+    width: fit-content;
+    background: var(--theme-color);
+    border: none;
+    border-radius: 8px;
+}
+
+#create-btn:hover {
+    background-color: var(--theme-color-off);
+}
+
+#login-link:link,
+#login-link:visited {
+    color: var(--theme-color);
+    font-weight: 550;
+    text-decoration: none;
+}
+
+#login-link:hover {
+    color: var(--theme-color-off);
+    font-weight: bold;
+}
+
+#background-credit {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    font-size: 0.75rem;
+    bottom: 0.5rem;
+    text-decoration: none;
+    color: white;
+    opacity: 0.85;
+    gap: 0.3rem;
+}
+
+#background-credit > div > a {
+    color: white
+}
+
+.flex-center {
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.left-space-margin {
+    margin-left: var(--text-div-left-spacing);
+}
+
+.limit-div {
+    width: min(40rem, 100%);
+}
+
+.std-font-sz {
+    font-size: var(--text-font-size);
+}
+
+.hover-pointer:hover {
+    cursor: pointer;
+}
+
+div.form-prp {
+    gap: 0.25rem;
+    position: relative;
+}
+
+div.form-prp > label {
+    opacity: 0.5;
+    position: absolute;
+    top: 0.8rem;
+    left: 0.35rem;
+}
+
+div.form-prp > label:hover {
+    cursor: text;
+}
+
+div.form-prp > input {
+    border-radius: 5px;
+    padding: 0.5rem 0.75rem;
+    border-style: solid;
+    border-width: 2 px;
+    border-color: var(--input-border);
+}
+
+div.form-prp > input:focus {
+    outline: none !important;
+    border-color: var(--input-focus-border);
+    box-shadow: 2px 2px 4px grey;
+}
+
+div.form-prp > input:focus + label,
+div.form-prp > input:not(:placeholder-shown) + label {
+    opacity: 0;
+}
+
+div.form-prp > span.cross-tick {
+    width: 1rem;
+    height: 1rem;
+    display: inline-block;
+    border-radius: 50%;
+}
+
+.validity-style.invalid {
+    border-color: var(--error-border-color);
+}
+
+input.validity-style.invalid ~ span.cross-tick {
+    background: center / cover no-repeat url("../images/cross.png"), #fff;
+}
+
+.validity-style.valid {
+    border-color: green;
+}
+
+input.validity-style.valid ~ span.cross-tick {
+    background: center / cover no-repeat url("../images/tick.png"), #fff;
+}
+
+input ~ span.error-msg {
+    display: block;
+    position: absolute;
+    background-color: var(--error-msg-background-color);
+    font-size: 80%;
+    border-radius: 0.2rem;
+    color: var(--error-msg-text-color);
+}
+
+input ~ span.error-msg.error-active {
+    padding: 0.25rem;
+}

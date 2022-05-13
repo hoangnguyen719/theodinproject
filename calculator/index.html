@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My 2-week-of-work calculation</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.png">
+    <script src="functions.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="flex-row flex-justify-center flex-align-center">
+    <div id="calculator-area"
+        class="flex-col flex-justify-center flex-align-center border-box"
+        >
+        <div id="display-area" 
+            class="display flex-col
+                flex-justify-center
+                flex-align-center">
+            <div id="top-display"
+                class="flex-row flex-align-center
+                    flex-justify-right border-box">
+            </div>
+            <div id="btm-display"
+                class="flex-row flex-align-center
+                    flex-justify-right border-box">
+            </div>
+        </div>
+        <div id="btn-rows" class="flex-col flex-justify-center flex-align-center">
+            <div class="btn-row flex-row flex-justify-center flex-align-center">
+                <button id="clear" keyName="" class="grey reset-nan">CE</button>
+                <button id="reset" keyName="" class="grey reset-nan">C</button>
+                <button id="delete" keyName="backspace" class="grey reset-nan">←</button>
+                <button id="add" keyName="+" class="orange function"></button>
+            </div>
+            <div class="btn-row flex-row flex-justify-center flex-align-center">
+                <button id="1" keyName="1" class="display-append reset-nan">1</button>
+                <button id="2" keyName="2" class="display-append reset-nan">2</button>
+                <button id="3" keyName="3" class="display-append reset-nan">3</button>
+                <button id="subtract" keyName="-" class="orange function"></button>
+            </div>
+            <div class="btn-row flex-row flex-justify-center flex-align-center">
+                <button id="4" keyName="4" class="display-append reset-nan">4</button>
+                <button id="5" keyName="5" class="display-append reset-nan">5</button>
+                <button id="6" keyName="6" class="display-append reset-nan">6</button>
+                <button id="multiply" keyName="*" class="orange function"></button>
+            </div>
+            <div class="btn-row flex-row flex-justify-center flex-align-center">
+                <button id="7" keyName="7" class="display-append reset-nan">7</button>
+                <button id="8" keyName="8" class="display-append reset-nan">8</button>
+                <button id="9" keyName="9" class="display-append reset-nan">9</button>
+                <button id="divide" keyName="/" class="orange function"></button>
+            </div>
+            <div class="btn-row flex-row flex-justify-center flex-align-center">
+                <button id="negate" keyName="" class="reset-nan">⁺∕₋</button>
+                <button id="0" keyName="0" class="display-append reset-nan">0</button>
+                <button id="dot" keyName="." class="reset-nan">.</button>
+                <button id="equal" keyName="enter" class="orange ">=</button>
+            </div>            
+        </div>
+    </div>
+</body>
+</html>

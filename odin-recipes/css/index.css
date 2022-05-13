@@ -1,0 +1,264 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+:root {
+  --primary-font-family: Roboto, sans-serif;
+  --primary-text-color: black;
+  --white-text-color: #f9faf8;
+  --recipe-text-hover: rgb(66, 64, 64);
+  --blue-blackground: #1F2937;
+  --button-background: #3882F6;
+  --button-background-hover: #6d9deb;
+  --quote-background: #e5e7eb;
+  --grey-link: #e5e7eb54;
+  --grey-link-hover: #e5e7ebce;
+  --quote-text-font: italic 36px var(--primary-font-family);
+  --quote-text-color: #49576b;
+  --quote-author-font: bold 16px var(--primary-font-family);
+}
+
+* {
+  font-family: var(--primary-font-family);
+}
+
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  align-items: stretch;
+}
+
+body > * {
+  flex: 1 ;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:visited
+, a:link {
+  color: var(--primary-text-color);
+}
+
+.white-text {
+  color: var(--white-text-color);
+}
+
+a.white-text:visited
+, a.white-text:link {
+  color: var(--white-text-color)
+}
+
+.hero
+, .footer {
+  background-color: var(--blue-blackground);
+  font-size: 18px;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero {
+  padding: 10px 17% 20px 17%;
+  gap: 40px;
+}
+
+.hero-item {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  min-width: 700px;
+}
+
+.hero-item > * {
+  flex: 1;
+  min-width: 500px;
+}
+
+.header-logo {
+  font-size: 24px;
+}
+
+.header-link {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+}
+
+.header-link ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.header-link li {
+  display: inline;
+}
+
+a.grey-link {
+  font-size: 18px;
+  color: var(--grey-link);
+}
+
+a.grey-link:hover {
+  color: var(--grey-link-hover);
+}
+
+.hero-item.intro {
+  gap: 10px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.intro-headline {
+  font-size: 48px;
+  font-weight: extra-bold;
+  margin: 10px 0;
+}
+
+.signup-button {
+  background-color: var(--button-background);
+  border: none;
+  font-size: 18px;
+  padding: 3px 20px 3px 20px;
+  border-radius: 8px;
+  text-align: center;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.signup-button:hover {
+  background-color: var(--button-background-hover);
+}
+
+.intro-image {
+  text-align: right;
+}
+
+.intro-image > img {
+  width: 80%;
+  min-width: 300px;
+}
+
+.recipes {
+  margin: 40px 40px 60px 40px;
+  box-sizing: border-box;
+}
+
+.recipes > div {
+  text-align: center;
+}
+
+.recipe-headline {
+  font-size: 36px;
+  font-weight: extra-bold;
+  margin: 0 0 10px 0;
+}
+
+.recipe-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 20px 0;
+}
+
+.recipe-link {
+  text-align: center;
+}
+
+.recipe-link a:hover {
+  color: var(--recipe-text-hover);
+}
+
+.recipe-link img:hover {
+  opacity: 0.8
+}
+
+.recipe-link p {
+  display: inline;
+  margin: 5px 0 0 0;
+}
+
+.recipe-link img {
+  width: 200px;
+  height: 200px;
+  border: var(--button-background) solid;
+}
+
+.quote {
+  background-color: var(--quote-background);
+  padding: 40px 30px 60px 30px;
+}
+
+.quote-text {
+  font: var(--quote-text-font);
+  color: var(--quote-text-color);
+  margin: 0;
+}
+
+.quote-author {
+  width: 500px;
+  min-width: 200px;
+  max-width: 600px;
+  margin: 10px 0 0 0;
+  text-align: right;
+}
+
+.quote-author p {
+  margin: 0;
+  font: var(--quote-author-font);
+}
+
+.signup {
+  padding: 40px;
+}
+
+.signup-content {
+  background-color: var(--button-background);
+  box-sizing: border-box;
+  min-width: 1000px;
+  padding: 20px 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border-radius: 8px;
+}
+
+.signup-content p {
+  margin: 0;
+}
+
+p.signup-content-headline {
+  font-weight: 900;
+  margin: 10px 0;
+}
+
+.signup-button-border {
+  border: 1px white solid;
+}
+
+.footer {
+  margin: 10px 0 0 0;
+  padding: 10px;
+  gap: 10px;
+}
+
+.footer > * {
+  margin: 0;
+}
+
+.after-note {
+  font-size: 12px;
+  text-align: center;
+}

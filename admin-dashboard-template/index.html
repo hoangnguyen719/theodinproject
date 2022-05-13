@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="css/default-style.css">
+  <link rel="stylesheet" href="css/custom-style.css">
+</head>
+<body>
+  <div id="sidebar" class="flex-column">
+    <a id="home-icon" class="flex-row flex-center bold-font" href="">
+      <div id="sidebar-web-logo">
+        <img class="parent-sized"
+          src="images/calendar-multiple-check.png"
+          alt="schedule logo">
+      </div>
+      Schedule
+    </a>
+    <div id="sidebar-nav" class="flex-column">
+      <div id="sidebar-nav-top" >
+        <ul class="flex-column">
+          <li>
+            <a class="side-bar-a flex-row flex-start " href="">
+              <div class="sidebar-nav-logo">
+                <img class="parent-sized"
+                  src="images/home-logo.png" alt="Home">
+              </div>
+              Home
+            </a>
+          </li>
+          <li>
+            <a class="side-bar-a flex-row flex-start " href="">
+              <div class="sidebar-nav-logo">
+                <img class="parent-sized"
+                  src="images/profile-logo.png" alt="Profile">
+              </div>
+              Profile
+            </a>
+          </li>
+          <li>
+            <a class="side-bar-a flex-row flex-start " href="">
+              <div class="sidebar-nav-logo">
+                <img class="parent-sized"
+                  src="images/message-logo.png" alt="Message">
+              </div>
+              Messages
+            </a>
+          </li>
+          <li>
+            <a class="side-bar-a flex-row flex-start " href="">
+              <div class="sidebar-nav-logo">
+                <img class="parent-sized"
+                  src="images/community-logo.png" alt="Team">
+              </div>
+              Teams
+            </a>
+          </li>
+          <li>
+            <a class="side-bar-a flex-row flex-start " href="">
+              <div class="sidebar-nav-logo">
+                <img class="parent-sized"
+                  src="images/football-logo.png" alt="Football">
+              </div>
+              Events
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div id="sidebar-nav-btm" >
+        <ul class="flex-column">
+          <li>
+            <a class="side-bar-a flex-row flex-start " href="">
+              <div class="sidebar-nav-logo">
+                <img class="parent-sized"
+                  src="images/setting-logo.png" alt="Football">
+              </div>
+              Settings
+            </a>
+          </li>
+          <li>
+            <a class="side-bar-a flex-row flex-start " href="">
+              <div class="sidebar-nav-logo">
+                <img class="parent-sized"
+                  src="images/question-logo.png" alt="Football">
+              </div>
+              Support
+            </a>
+          </li>
+          <li>
+            <a class="side-bar-a flex-row flex-start " href="">
+              <div class="sidebar-nav-logo">
+                <img class="parent-sized"
+                  src="images/privacy-logo.png" alt="Football">
+              </div>
+              Privacy
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div id="main" class="flex-column">
+    <div id="header" class="flex-column">
+      <div id="header-upper" class="flex-row flex-center">
+        <form id="search-form" action="post" class="flex-row flex-center">
+          <button type="submit">
+            <img class="parent-sized"
+              src="images/magnifying-glass.png"
+              alt="Notification">
+          </button>
+          <input type="search" name="search-bar" id="search-bar">
+        </form>
+        <div id="header-upper-nav" class="flex-row flex-center">
+          <a id="noti" href="">
+            <img class="parent-sized"
+              src="images/bell.png"
+              alt="Notification">
+          </a>
+          <div id="header-upper-nav-profile" class="flex-row flex-center">
+            <a class="profile-pic" href="">
+              <img class="parent-sized"
+                src="images/catinho.jpg"
+                alt="Profile picture">
+            </a>
+            <a class="profile-name" href="">
+              Hoang Nguyen
+            </a>
+          </div>
+        </div>
+      </div>
+      <div id="header-btm" class="flex-row">
+        <div id="header-btm-profile" class="flex-row">
+          <a class="profile-pic" href="">
+            <img class="parent-sized"
+              src="images/catinho.jpg"
+              alt="Profile picture">
+          </a>
+          <div id="header-btm-profile-name" class="flex-column">
+            <div class="name-greeting">
+              Hi there,
+            </div>
+            <div class="profile-name-container flex-row flex-center">
+              <div class="profile-name">Hoang Nguyen</div>
+              <div>
+                (<a href="" class="profile-acct-name">@hoangnguyen719</a>)
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="header-btm-action-btn" class="flex-row flex-center">
+          <a href="/">New</a>
+          <a href="/">Upload</a>
+          <a href="/">Share</a>
+        </div>
+      </div>
+    </div>
+    <div id="main-content">
+      <div id="upcoming-events"
+        class="main-content-container flex-column">
+        <p class="main-content-title flex-column bold-font">
+          UPCOMING EVENTS
+        </p>
+        <div id="upcoming-events-list" class="main-content-content">
+          <div class="event-container flex-column">
+            <a href="" class="event-container-text">
+              <div class="event-container-title bold-font">
+                FC Tau Hai vs. FC Vui Ve
+              </div>
+              <div class="event-container-content">
+                Lorem, ipsum dolor sit amet consectetur
+                adipisicing elit. Eligendi, enim, ab tempora
+                excepturi beatae reiciendis cum repellendus
+                corrupti et eum, molestiae earum neque tenetur
+                natus. Similique minus nihil ea nobis!
+              </div>
+            </a>
+            <div class="event-container-action flex-row">
+              <button class="img-container">
+                <img src="images/bookmark-outline-black.png"
+                  class="parent-sized"
+                  alt="Bookmark">
+              </button>
+              <button class="img-container">
+                <img src="images/share-variant-black.png"
+                  class="parent-sized"
+                  alt="Share">
+              </button>
+              <button class="img-container">
+                <img src="images/cog-outline-black.png"
+                  class="parent-sized"
+                  alt="Setting">
+              </button>
+            </div>
+          </div>
+          <div class="event-container flex-column">
+            <a href="" class="event-container-text">
+              <div class="event-container-title bold-font">
+                FC Tau Hai vs. FC Vui Ve
+              </div>
+              <div class="event-container-content">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aspernatur, officia. Aliquid quaerat, fuga tenetur qui at laborum! Quaerat expedita distinctio laboriosam odit harum in illo dolores doloremque sequi corrupti! Optio.
+                Culpa molestiae porro fugit sit ratione non aut velit maxime eos nam ipsa, minima officiis est reiciendis voluptates temporibus recusandae voluptatem veniam, totam neque impedit eveniet quaerat aliquid! Accusantium, provident!
+                Explicabo excepturi quisquam atque ipsa mollitia fugiat hic dolores sequi dolor eum veniam quam, pariatur id totam debitis ex temporibus ad labore veritatis aspernatur placeat incidunt perferendis tenetur? Velit, delectus.
+                Facere doloribus aliquid numquam corrupti. Quaerat nemo at, nam non eum distinctio aperiam et quos consectetur debitis sunt. Tenetur, aspernatur? Unde eos eum suscipit quibusdam ipsum distinctio vitae corrupti at.
+                Voluptates eveniet consequatur molestias doloribus earum placeat sunt nam consectetur facilis ipsam! Nihil tempora sed deserunt aliquid, error suscipit perferendis ab molestias alias illum architecto quae voluptate omnis maiores ut?
+              </div>
+            </a>
+            <div class="event-container-action flex-row">
+              <button class="img-container">
+                <img src="images/bookmark-outline-black.png"
+                  class="parent-sized"
+                  alt="Bookmark">
+              </button>
+              <button class="img-container">
+                <img src="images/share-variant-black.png"
+                  class="parent-sized"
+                  alt="Share">
+              </button>
+              <button class="img-container">
+                <img src="images/cog-outline-black.png"
+                  class="parent-sized"
+                  alt="Setting">
+              </button>
+            </div>
+          </div>
+          <div class="event-container flex-column">
+            <a href="" class="event-container-text">
+              <div class="event-container-title bold-font">
+                FC Tau Hai vs. FC Vui Ve
+              </div>
+              <div class="event-container-content">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione officiis dolor, veniam id cum, est ipsam distinctio asperiores, fugit culpa cumque unde doloribus atque sunt. Commodi iste cum laboriosam odio?
+                Quasi sunt, voluptas minus corrupti nihil at voluptatibus neque itaque fuga aspernatur officia quam delectus praesentium libero exercitationem fugiat consequatur commodi ipsam ea. Maiores, perspiciatis molestias in cumque ipsa officiis.
+              </div>
+            </a>
+            <div class="event-container-action flex-row">
+              <button class="img-container">
+                <img src="images/bookmark-outline-black.png"
+                  class="parent-sized"
+                  alt="Bookmark">
+              </button>
+              <button class="img-container">
+                <img src="images/share-variant-black.png"
+                  class="parent-sized"
+                  alt="Share">
+              </button>
+              <button class="img-container">
+                <img src="images/cog-outline-black.png"
+                  class="parent-sized"
+                  alt="Setting">
+              </button>
+            </div>
+          </div>
+          <div class="event-container flex-column">
+            <a href="" class="event-container-text">
+              <div class="event-container-title bold-font">
+                FC Tau Hai vs. FC Vui Ve
+              </div>
+              <div class="event-container-content">
+                Lorem, ipsum dolor sit amet consectetur
+                adipisicing elit. Eligendi, enim, ab tempora
+                excepturi beatae reiciendis cum repellendus
+                corrupti et eum, molestiae earum neque tenetur
+                natus. Similique minus nihil ea nobis!
+              </div>
+            </a>
+            <div class="event-container-action flex-row">
+              <button class="img-container">
+                <img src="images/bookmark-outline-black.png"
+                  class="parent-sized"
+                  alt="Bookmark">
+              </button>
+              <button class="img-container">
+                <img src="images/share-variant-black.png"
+                  class="parent-sized"
+                  alt="Share">
+              </button>
+              <button class="img-container">
+                <img src="images/cog-outline-black.png"
+                  class="parent-sized"
+                  alt="Setting">
+              </button>
+            </div>
+          </div>
+          <div class="event-container flex-column">
+            <a href="" class="event-container-text">
+              <div class="event-container-title bold-font">
+                FC Tau Hai vs. FC Vui Ve
+              </div>
+              <div class="event-container-content">
+                Lorem, ipsum dolor sit amet consectetur
+                adipisicing elit. Eligendi, enim, ab tempora
+                excepturi beatae reiciendis cum repellendus
+                corrupti et eum, molestiae earum neque tenetur
+                natus. Similique minus nihil ea nobis!
+              </div>
+            </a>
+            <div class="event-container-action flex-row">
+              <button class="img-container">
+                <img src="images/bookmark-outline-black.png"
+                  class="parent-sized"
+                  alt="Bookmark">
+              </button>
+              <button class="img-container">
+                <img src="images/share-variant-black.png"
+                  class="parent-sized"
+                  alt="Share">
+              </button>
+              <button class="img-container">
+                <img src="images/cog-outline-black.png"
+                  class="parent-sized"
+                  alt="Setting">
+              </button>
+            </div>
+          </div>
+          <div class="event-container flex-column">
+            <a href="" class="event-container-text">
+              <div class="event-container-title bold-font">
+                FC Tau Hai vs. FC Vui Ve
+              </div>
+              <div class="event-container-content">
+                Lorem, ipsum dolor sit amet consectetur
+                adipisicing elit. Eligendi, enim, ab tempora
+                excepturi beatae reiciendis cum repellendus
+                corrupti et eum, molestiae earum neque tenetur
+                natus. Similique minus nihil ea nobis!
+              </div>
+            </a>
+            <div class="event-container-action flex-row">
+              <button class="img-container">
+                <img src="images/bookmark-outline-black.png"
+                  class="parent-sized"
+                  alt="Bookmark">
+              </button>
+              <button class="img-container">
+                <img src="images/share-variant-black.png"
+                  class="parent-sized"
+                  alt="Share">
+              </button>
+              <button class="img-container">
+                <img src="images/cog-outline-black.png"
+                  class="parent-sized"
+                  alt="Setting">
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="main-content-side" class="flex-column">
+        <div id="historical-events"
+          class="main-content-container flex-column">
+          <p class="main-content-title flex-column bold-font">
+            HISTORICAL EVENTS
+          </p>
+          <div class="main-content-content event-container flex-column">
+            <a href="" class="event-container-text main-content-content-item">
+              <div class="event-container-title bold-font">
+                FC Tau Hai vs. FC Funny
+              </div>
+              <div class="event-container-content">
+                <p class="flex-row">
+                  <img src="images/calendar-blank-black.png"
+                    class=""
+                    alt="Date">
+                  Date
+                </p>
+                <p class="flex-row">
+                  <img src="images/clock-time-four-black.png"
+                    class=""
+                    alt="Time">
+                  Time
+                </p>
+                <p class="flex-row">
+                  <img src="images/map-marker-black.png"
+                    class=""
+                    alt="Location">
+                  Location
+                </p>
+                <p class="flex-row">
+                  <img src="images/scoreboard-black.png"
+                    class=""
+                    alt="Score">
+                  Score
+                </p>
+              </div>
+            </a>
+            <a href="" class="event-container-text main-content-content-item">
+              <div class="event-container-title bold-font">
+                FC Immortal Supremo vs. FC DHBK
+              </div>
+              <div class="event-container-content">
+                <p class="flex-row">
+                  <img src="images/calendar-blank-black.png"
+                    class=""
+                    alt="Date">
+                  Date
+                </p>
+                <p class="flex-row">
+                  <img src="images/clock-time-four-black.png"
+                    class=""
+                    alt="Time">
+                  Time
+                </p>
+                <p class="flex-row">
+                  <img src="images/map-marker-black.png"
+                    class=""
+                    alt="Location">
+                  Location
+                </p>
+                <p class="flex-row">
+                  <img src="images/scoreboard-black.png"
+                    class=""
+                    alt="Score">
+                  Score
+                </p>
+              </div>
+            </a>
+            <a href="" class="event-container-text main-content-content-item">
+              <div class="event-container-title bold-font">
+                FC Tau Hai vs. FC Banh Bao
+              </div>
+              <div class="event-container-content">
+                <p class="flex-row">
+                  <img src="images/calendar-blank-black.png"
+                    class=""
+                    alt="Date">
+                  Date
+                </p>
+                <p class="flex-row">
+                  <img src="images/clock-time-four-black.png"
+                    class=""
+                    alt="Time">
+                  Time
+                </p>
+                <p class="flex-row">
+                  <img src="images/map-marker-black.png"
+                    class=""
+                    alt="Location">
+                  Location
+                </p>
+                <p class="flex-row">
+                  <img src="images/scoreboard-black.png"
+                    class=""
+                    alt="Score">
+                  Score
+                </p>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div id="teams"
+          class="main-content-container flex-column">
+          <p class="main-content-title flex-column bold-font">
+            COMMUNITIES
+          </p>     
+          <div class="main-content-content event-container flex-column">   
+            <a href=""
+              class="team-profile main-content-content-item flex-row">
+                <div class="img-container profile-img-container">
+                  <img src="images/tauhaifc.jpg"
+                    class="parent-sized"
+                    alt="FC Tau Hai">
+                </div>
+                <div class="profile-name-container flex-row flex-center">
+                  <div class="profile-name">FC Tau Hai</div>
+                  <div>
+                    (<span class="profile-acct-name">@fctauhai</span>)
+                  </div>
+                </div>
+            </a>   
+            <a href=""
+              class="team-profile main-content-content-item flex-row">
+              <div class="img-container profile-img-container">
+                <img src="images/isfc.jpg"
+                  class="parent-sized"
+                  alt="FC Immortal Supremo">
+              </div>
+                <div class="profile-name-container flex-row flex-center">
+                  <div class="profile-name">FC Immortal Supremo</div>
+                  <div>
+                    (<span class="profile-acct-name">@fcis</span>)
+                  </div>
+                </div>
+            </a>   
+            <a href=""
+              class="team-profile main-content-content-item flex-row">
+              <div class="img-container profile-img-container">
+                <img src="images/community-logo-black.png"
+                  class="parent-sized"
+                  alt="FC Nha Giao">
+              </div>
+                <div class="profile-name-container flex-row flex-center">
+                  <div class="profile-name">FC Nha Giao</div>
+                  <div>
+                    (<span class="profile-acct-name">@fcteachers</span>)
+                  </div>
+                </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

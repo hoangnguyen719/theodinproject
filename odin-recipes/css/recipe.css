@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+:root {
+  --primary-font-family: Roboto, sans-serif;
+  --primary-text-color: black;
+  --white-text-color: #f9faf8;
+  --recipe-text-hover: rgb(66, 64, 64);
+  --blue-blackground: #1F2937;
+  --button-background: #3882F6;
+  --button-background-hover: #6d9deb;
+  --quote-background: #e5e7eb;
+  --grey-link: #e5e7eb54;
+  --grey-link-hover: #e5e7ebce;
+  --quote-text-font: italic 36px var(--primary-font-family);
+  --quote-text-color: #49576b;
+  --quote-author-font: bold 16px var(--primary-font-family);
+}
+
+.recipe-desc {
+  width: 100vh;
+  padding: 20px 50px;
+  box-sizing: border-box;
+  align-self: center;
+}
+
+a {
+  font-style: italic;
+}
+
+.recipe-img {
+  height: 500px;
+  min-height: 400px;
+}
+
+.list-w-margin li {
+  margin: 10px 0 0 0;
+}

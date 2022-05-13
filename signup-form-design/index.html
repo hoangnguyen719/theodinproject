@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signing Up</title>
+  <link rel="stylesheet" href="css/default_style.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/functions.js" defer></script>
+</head>
+<body class="flex-row flex-center">
+  <div id="background-area" >
+    <div id="smaller-background"></div>
+    <div id="background-credit" class="flex-col">
+      <div>
+        Soccer field photo by
+        <a href="https://unsplash.com/@izuddinhelmi">Izuddin Helmi Adnan</a>
+        on
+        <a href="https://unsplash.com/photos/K5ChxJaheKI">
+          Unsplash
+        </a>
+      </div>
+      <div>
+        Odin logo by
+        <a href="https://www.theodinproject.com/">The Odin Project</a>
+        at
+        <a href="https://cdn.statically.io/gh/TheOdinProject/curriculum/5f37d43908ef92499e95a9b90fc3cc291a95014c/html_css/project-sign-up-form/odin-lined.pnghttps://www.theodinproject.com/lessons/node-path-intermediate-html-and-css-sign-up-form#assignment">
+          this section
+        </a>
+      </div>
+    </div>
+  </div>
+  <div id="text-div" class="flex-col">
+    <div id="intro-div" class="flex-col left-space-margin">
+      <div id="intro-div-big" class="flex-col limit-div">
+        <div>
+          This is not a real online service!
+          You know you need something like this in your life
+          to help you realize your deepest dreams.
+        </div>
+        <div>
+          Sign up <em>NOW</em> to get started!
+        </div>
+      </div>
+      <div id="intro-div-small" class=" limit-div">
+        You <em>know</em> you want to.
+      </div>
+    </div>
+    <div id="signup-div">
+      <form id="signup-form" class="flex-col"maction="/" method="post" novalidate>
+        <div id="signup-box">
+          <div id="signup-inner-box" class="flex-col limit-div">
+            <div class="flex-row">
+              <div class="form-prp">
+                <input id="first-name" type="text" class="name std-font-sz"
+                  placeholder=" ">
+                <label for="first-name" class="std-font-sz">First Name</label>
+                <span class="cross-tick"></span>
+                <span class="error-msg"></span>
+              </div>
+              <div class="form-prp">
+                <input id="last-name" type="text" class="name std-font-sz"
+                  placeholder=" ">
+                <label for="last-name" class="std-font-sz">Last Name</label>
+                <span class="cross-tick"></span>
+                <span class="error-msg"></span>
+              </div>
+            </div>
+            <div class="flex-row">
+              <div class="form-prp">
+                <input id="email" type="email" class="std-font-sz"
+                  placeholder=" ">
+                <label for="email" class="std-font-sz">Email</label>
+                <span class="cross-tick"></span>
+                <span class="error-msg"></span>
+              </div>
+              <div class="form-prp">
+                <input id="phone" type="number" class="std-font-sz"
+                  placeholder=" ">
+                <label for="phone" class="std-font-sz">Phone Number</label>
+                <span class="cross-tick"></span>
+                <span class="error-msg"></span>
+              </div>
+            </div>
+            <div class="flex-row">
+              <div class="form-prp">
+                <input id="password" type="password" class="std-font-sz"
+                  placeholder=" ">
+                <label for="password" class="std-font-sz"> Password</label>
+                <span class="cross-tick"></span>
+                <span class="error-msg"></span>
+              </div>
+              <div class="form-prp">
+                <input id="password-confirm" type="password" class="std-font-sz"
+                  placeholder=" ">
+                <label for="password-confirm" class="std-font-sz">
+                  Confirm Password
+                </label>
+                <span class="cross-tick"></span>
+                <span class="error-msg"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="limit-div">
+          <button action="/" from="signup-form" type="submit" id="create-btn"
+            class="left-space-margin std-font-sz hover-pointer"
+            >
+            Create Account
+          </button>
+        </div>
+      </form>
+    </div>
+    <div id="has-acct-div" class="left-space-margin limit-div std-font-sz">
+      Already have an account?
+      <a href="/login" id="login-link" class="hover-pointer">Log in</a>
+    </div>
+  </div>
+</body>
+</html>
