@@ -1,0 +1,44 @@
+@font-face {
+  font-family: 'Roboto';
+  src: url('../../font-families/Roboto/Roboto-Light.woff')
+}
+
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  background-color: var(--background-color);
+  --welcome-font-size: 3rem;
+  --background-color: rgba(127, 255, 212, 0.315);
+}
+
+body * {
+  font-size: var(--default-font-size);
+}
+
+#content {
+  height: 80%;
+}
+
+#welcome {
+  font-size: var(--welcome-font-size);
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-center {
+  justify-content: center;
+  align-items: center;
+}
