@@ -18,6 +18,7 @@ body {
   --border-color: rgba(17, 160, 81, 0.829);
   --border-color-off-1: rgb(8, 105, 52);
   --border-color-off-2: rgb(4, 56, 27);
+  --add-btn-msg-font-size: 0.8rem;
 }
 
 body * {
@@ -101,6 +102,11 @@ input:focus {
   gap: 0.5rem;
 }
 
+#add-btn-area {
+  position: relative;
+  width: 100%;
+}
+
 #add-btn {
   padding: 0.4rem 1.5rem;
   background-color: var(--border-color-off-1);
@@ -116,6 +122,23 @@ input:focus {
 
 #add-btn:active {
   background-color: var(--border-color-off-2);
+}
+
+#add-btn-msg {
+  position: absolute;
+  bottom: calc(-1.5 * var(--add-btn-msg-font-size));
+  font-size: var(--add-btn-msg-font-size);
+  padding: calc(0.2 * var(--add-btn-msg-font-size));
+}
+
+#add-btn-msg.add-error {
+  background: red;
+  color: black;
+}
+
+#add-btn-msg.add-success {
+  background: green;
+  color: white;
 }
 
 .flex-row {

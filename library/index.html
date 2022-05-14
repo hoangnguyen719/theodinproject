@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Library</title>
-  <script src="js/functions.js"></script>
+  <script src="js/functions.js" defer></script>
   <link rel="stylesheet" href="../general-styles/meyer-reset.css">
   <link rel="stylesheet" href="style/custom-style.css">
 </head>
@@ -18,23 +18,26 @@
         <form action="post" id="add-form" class="flex-column flex-center">
           <div id="form-input" class="flex-column">
             <div id="form-title" class="flex-column">
-              <label for="title">Title</label>
-              <input type="text" name="title" id="title" placeholder="Book title">
+              <label for="add-book-title">Title</label>
+              <input type="text" name="add-book-title" id="add-book-title" placeholder="Book title">
             </div>
             <div id="form-author" class="flex-column">
-              <label for="author">Author</label>
-              <input type="text" name="author" id="author" placeholder="Author name">
+              <label for="add-book-author">Author</label>
+              <input type="text" name="add-book-author" id="add-book-author" placeholder="Author name">
             </div>
             <div id="form-pages" class="flex-column">
-              <label for="pages">Number of Pages</label>
-              <input type="number" name="pages" id="pages" placeholder="Pages">
+              <label for="add-book-pages">Number of Pages</label>
+              <input type="number" name="add-book-pages" id="add-book-pages" placeholder="Pages">
             </div>
             <div id="form-read" class="flex-row">
-              <input type="checkbox" name="read" id="read" value="read">
-              <label for="read">Finished Reading?</label>
+              <input type="checkbox" name="add-book-read" id="add-book-read" value="read">
+              <label for="add-book-read">Finished Reading?</label>
             </div>
           </div>
-          <button id="add-btn">Add Book</button>
+          <div id="add-btn-area" class="flex-column flex-center">
+            <button type="button" id="add-btn">Add Book</button>
+            <span id="add-btn-msg"></span>
+          </div>
         </form>
       </div>
       <div id="book-list">
