@@ -1,14 +1,17 @@
 let myLibrary = [];
+const addErrorMsgContent = 'Book already existing in the library!';
+const addErrorMsgCls = 'add-error';
+const addSuccessMsgContent = 'Book successfully added to the library!';
+const addSuccessMsgCls = 'add-success';
+
 const inputBookTitle = document.querySelector('#add-book-title');
 const inputBookAuthor = document.querySelector('#add-book-author');
 const inputBookPages = document.querySelector('#add-book-pages');
 const inputBookRead = document.querySelector('#add-book-read');
 const addBookBtn = document.querySelector('#add-btn');
 const addBtnMsg = document.querySelector('#add-btn-msg');
-const addErrorMsgContent = 'Book already existing in the library!';
-const addErrorMsgCls = 'add-error';
-const addSuccessMsgContent = 'Book successfully added to the library!';
-const addSuccessMsgCls = 'add-success';
+const bookCounter = document.querySelector('#book-count');
+
 
 function Book(title, author, pages, isRead) {
   this.title = title;
@@ -74,9 +77,8 @@ function addBookFromInput() {
   }
 }
 
-function clickBookAddBtn() {
-  addBookFromInput();
-  displayBookList();
+function displayBookCounter() {
+  bookCounter.innerHTML = `Total Books in the Library: ${myLibrary.length}`;
 }
 
 function createBookDiv(book) {
@@ -84,7 +86,13 @@ function createBookDiv(book) {
 }
 
 function displayBookList() {
-
+  displayBookCounter();
 }
 
-addBookBtn.addEventListener('click', addBookFromInput);
+function clickBookAddBtn() {
+  addBookFromInput();
+  displayBookList();
+}
+
+addBookBtn.addEventListener('click', clickBookAddBtn);
+displayBookCounter();

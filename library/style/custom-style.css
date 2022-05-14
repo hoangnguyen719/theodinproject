@@ -14,11 +14,13 @@ body {
   background-color: var(--background-color);
   --welcome-font-size: 3rem;
   --background-color: rgba(127, 255, 212, 0.315);
-  --add-book-font-size: calc(0.5 * var(--welcome-font-size));
+  --add-book-font-size: calc(0.65 * var(--welcome-font-size));
   --border-color: rgba(17, 160, 81, 0.829);
   --border-color-off-1: rgb(8, 105, 52);
   --border-color-off-2: rgb(4, 56, 27);
   --add-btn-msg-font-size: 0.8rem;
+  --book-title-font-size: calc(0.5 * var(--welcome-font-size));
+  --book-subinfo-font-size: calc(0.75 * var(--book-title-font-size));
 }
 
 body * {
@@ -138,6 +140,112 @@ input:focus {
 
 #add-btn-msg.add-success {
   background: green;
+  color: white;
+}
+
+#book-display {
+  gap: 2rem;
+  padding: 2rem;
+}
+
+#book-count {
+  font-size: var(--add-book-font-size);
+  font-weight: bold;
+}
+
+#book-list {
+  flex: 1;
+  gap: 1rem;
+  overflow: auto;
+}
+
+.book-list-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.book-list-item .title {
+  font-size: var(--book-title-font-size);
+  font-style: italic;
+  font-weight: bold;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+
+.book-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.book-sub-info {
+  display: flex;
+  flex-direction: column;
+  font-size: var(--book-subinfo-font-size);
+}
+
+.book-sub-info > * {
+  padding: calc(0.2 * var(--book-subinfo-font-size));
+}
+
+.book-btn {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.book-btn > button {
+  width: 7rem;
+  /* padding: 0.25rem 0.75rem; */
+  border-radius: 0.5rem;
+  border: none;
+}
+
+.book-btn > button {
+  cursor: pointer;
+}
+
+.book-read-btn {
+  padding: 0.25rem 0;
+}
+
+.book-read-btn.book-read-btn-read {
+  background-color: rgba(4, 71, 4, 0.473);
+  color: black;
+}
+
+.book-read-btn.book-read-btn-read:after {
+  content: 'Mark Read';
+}
+
+.book-read-btn.book-read-btn-read:hover {
+  background-color: rgba(4, 71, 4, 0.966);
+  color: white;
+}
+
+.book-read-btn.book-read-btn-unread {
+  background-color: rgba(128, 128, 128, 0.473);
+  color: black;
+  border: 1px solid grey;
+}
+
+.book-read-btn.book-read-btn-unread::after {
+  content: 'Mark Unread';
+}
+
+.book-read-btn.book-read-btn-unread:hover {
+  border-color: rgba(4, 71, 4, 0.966);
+}
+
+.book-remove-btn {
+  background-color: rgba(255, 0, 0, 0.493);
+  color: black;
+  padding: 0.25rem 0;
+}
+
+.book-remove-btn:hover {
+  background-color: rgb(155, 15, 15);
   color: white;
 }
 

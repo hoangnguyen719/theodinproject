@@ -40,14 +40,42 @@
           </div>
         </form>
       </div>
-      <div id="book-list">
-        <div id="book-count">Book count</div>
-        <div class="book-item">
-          <div class="title">Book 1</div>
-          <div class="book-info">
-            <div class="author">Author 1</div>
-            <div class="pages">100</div>
-            <div class="isread">Finished (Y/N): N</div>
+      <div id="book-display" class="flex-column">
+        <div id="book-count"></div>
+        <div id="book-list" class="flex-column">
+          <div class="book-list-item">
+            <div class="book-info">
+              <div class="title-read">
+                <div class="title">Book 1</div>
+                <span class="is-read">Read</span>
+              </div>
+              <div class="book-sub-info">
+                <div class="author">Author 1</div>
+                <div class="pages">100</div>
+              </div>
+            </div>
+            <div class="book-btn">
+              <button type="button" class="book-read-btn book-read-btn-unread">
+              </button>
+              <button type="button" class="book-remove-btn">Remove</button>
+            </div>
+          </div>
+          <div class="book-list-item">
+            <div class="book-info">
+              <div class="title-read">
+                <div class="title">Book 1</div>
+                <span class="is-read">Read</span>
+              </div>
+              <div class="book-sub-info">
+                <div class="author">Author 1</div>
+                <div class="pages">100</div>
+              </div>
+            </div>
+            <div class="book-btn">
+              <button type="button" class="book-read-btn book-read-btn-read">
+              </button>
+              <button type="button" class="book-remove-btn">Remove</button>
+            </div>
           </div>
         </div>
       </div>
