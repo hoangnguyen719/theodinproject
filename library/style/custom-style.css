@@ -146,6 +146,7 @@ input:focus {
 #book-display {
   gap: 2rem;
   padding: 2rem;
+  height: 100%;
 }
 
 #book-count {
@@ -155,8 +156,11 @@ input:focus {
 
 #book-list {
   flex: 1;
+  flex-basis: 0;
   gap: 1rem;
+  width: 100%;
   overflow: auto;
+  align-content: start;
 }
 
 .book-list-item {
@@ -165,12 +169,15 @@ input:focus {
   align-items: center;
 }
 
-.book-list-item .title {
+.book-title {
   font-size: var(--book-title-font-size);
-  font-style: italic;
   font-weight: bold;
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
+}
+
+.book-title.book-title-read {
+  font-style: italic;
 }
 
 .book-info {
@@ -197,7 +204,7 @@ input:focus {
 
 .book-btn > button {
   width: 7rem;
-  /* padding: 0.25rem 0.75rem; */
+  box-sizing: border-box;
   border-radius: 0.5rem;
   border: none;
 }
@@ -208,14 +215,17 @@ input:focus {
 
 .book-read-btn {
   padding: 0.25rem 0;
-}
-
-.book-read-btn.book-read-btn-read {
+  box-sizing: content-box;
   background-color: rgba(4, 71, 4, 0.473);
   color: black;
 }
 
-.book-read-btn.book-read-btn-read:after {
+.book-read-btn:hover {
+  background-color: rgba(4, 71, 4, 0.966);
+  color: white;
+}
+
+.book-read-btn::after {
   content: 'Mark Read';
 }
 
@@ -227,7 +237,6 @@ input:focus {
 .book-read-btn.book-read-btn-unread {
   background-color: rgba(128, 128, 128, 0.473);
   color: black;
-  border: 1px solid grey;
 }
 
 .book-read-btn.book-read-btn-unread::after {
@@ -235,7 +244,8 @@ input:focus {
 }
 
 .book-read-btn.book-read-btn-unread:hover {
-  border-color: rgba(4, 71, 4, 0.966);
+  color: white;
+  background-color: grey;
 }
 
 .book-remove-btn {

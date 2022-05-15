@@ -11,6 +11,7 @@ const inputBookRead = document.querySelector('#add-book-read');
 const addBookBtn = document.querySelector('#add-btn');
 const addBtnMsg = document.querySelector('#add-btn-msg');
 const bookCounter = document.querySelector('#book-count');
+const bookList = document.querySelector('#book-list');
 
 
 function Book(title, author, pages, isRead) {
@@ -81,17 +82,89 @@ function displayBookCounter() {
   bookCounter.innerHTML = `Total Books in the Library: ${myLibrary.length}`;
 }
 
-function createBookDiv(book) {
+function createElement(element, numberOfElement) {
+  let arr = []
+  for (let i=0; i<numberOfElement; i++) {
+    arr.push(document.createElement(element))
+  }
+  return arr;
+}
 
+function addClassToElement(ele, className) {
+  ele.classList.add(className);
+}
+
+function createBookItemDOM(book) {
+  let bookListItem, bookInfo, bookTitle, bookSubInfo, bookAuthor, bookPages, bookBtn;
+  let readBtn, removeBtn;
+  [bookListItem, bookInfo, bookTitle, bookSubInfo, bookAuthor, bookPages, bookBtn] =
+    createElement('div', 7);
+  [readBtn, removeBtn] = createElement('button', 2);
+
+  bookListItem.classList.add('book-list-item');
+  bookInfo.classList.add('book-info');
+  bookTitle.classList.add('book-title');
+  bookSubInfo.classList.add('book-sub-info');
+  bookAuthor.classList.add('book-author');
+  bookPages.classList.add('book-pages');
+  bookBtn.classList.add('book-btn');
+  readBtn.classList.add('book-read-btn');
+  removeBtn.classList.add('book-remove-btn');
+
+  bookTitle.innerHTML = book.title;
+  bookAuthor.innerHTML = book.author;
+  bookPages.innerHTML = book.pages;
+  readBtn.type = 'button';
+  removeBtn.type = 'button';
+  removeBtn.innerHTML = 'Remove';
+
+  if (book.isRead) {
+    readBtn.classList.add('book-read-btn-unread');
+    bookTitle.classList.add('book-title-read');
+  }
+
+  bookListItem.append(bookInfo, bookBtn);
+  bookInfo.append(bookTitle, bookSubInfo);
+  bookSubInfo.append(bookAuthor, bookPages);
+  bookBtn.append(readBtn, removeBtn);
+
+  return bookListItem;
+}
+
+function clearBookList() {
+  bookList.innerHTML = '';
+}
+
+function displayAllBooks() {
+  for (book of myLibrary) {
+    let bookDOM = createBookItemDOM(book);
+    bookList.append(bookDOM);
+  }
 }
 
 function displayBookList() {
   displayBookCounter();
+  clearBookList();
+  displayAllBooks()
 }
 
 function clickBookAddBtn() {
   addBookFromInput();
   displayBookList();
+}
+
+function removeBook(book) {
+
+}
+
+function removeBookDOM() {
+
+}
+
+function clickBookRemoveBtn() {
+  let book;
+  removeBook(book);
+  removeBookDOM();
 }
 
 addBookBtn.addEventListener('click', clickBookAddBtn);
