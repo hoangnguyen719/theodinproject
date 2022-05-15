@@ -1,8 +1,10 @@
-let myLibrary = [];
+let myLibrary = {};
+let nextBookIdx = 0;
 const addErrorMsgContent = 'Book already existing in the library!';
 const addErrorMsgCls = 'add-error';
 const addSuccessMsgContent = 'Book successfully added to the library!';
 const addSuccessMsgCls = 'add-success';
+const bookIdAttrName = 'bookid';
 
 const inputBookTitle = document.querySelector('#add-book-title');
 const inputBookAuthor = document.querySelector('#add-book-author');
@@ -21,8 +23,11 @@ function Book(title, author, pages, isRead) {
   this.isRead = isRead;
 }
 
-function addBookToLibrary(book) {
-  myLibrary.push(book);
+function addBookToLibrary(bookIdx, book, bookDOM) {
+  myLibrary[bookIdx] = {
+    'book': book
+    , 'DOM': bookDOM
+  }
 }
 
 function isSameBook(book1, book2) {
@@ -35,8 +40,8 @@ function isSameBook(book1, book2) {
 }
 
 function bookAlreadyExists(book) {
-  for (let existing_book of myLibrary) {
-    if (isSameBook(book, existing_book)) return true;
+  for (let existing_book in myLibrary) {
+    if (isSameBook(book, myLibrary[existing_book]['book'])) return true;
   }
   return false;
 }
@@ -73,13 +78,31 @@ function addBookFromInput() {
   if (bookAlreadyExists(inputBook)) {
     displayAddMsg(addErrorMsgCls, addErrorMsgContent);
   } else {
-    addBookToLibrary(inputBook);
+    addBookToLibrary(nextBookIdx, inputBook, createBookItemDOM(inputBook, nextBookIdx));
     displayAddMsg(addSuccessMsgCls, addSuccessMsgContent);
+    nextBookIdx ++;
   }
 }
 
 function displayBookCounter() {
-  bookCounter.innerHTML = `Total Books in the Library: ${myLibrary.length}`;
+  bookCounter.innerHTML =
+    `Total Books in the Library: ${Object.keys(myLibrary).length}`;
+}
+
+function clearBookList() {
+  bookList.innerHTML = '';
+}
+
+function displayAllBooks() {
+  clearBookList();
+  for (let book in myLibrary) {
+    bookList.append(myLibrary[book]['DOM']);
+  }
+}
+
+function displayBookList() {
+  displayBookCounter();
+  displayAllBooks()
 }
 
 function createElement(element, numberOfElement) {
@@ -94,7 +117,39 @@ function addClassToElement(ele, className) {
   ele.classList.add(className);
 }
 
-function createBookItemDOM(book) {
+function clickBookRemoveBtn(event) {
+  let bookIdx = event.srcElement.getAttribute(bookIdAttrName);
+  delete myLibrary[bookIdx];
+  displayBookList();
+}
+
+function addElementCls(ele, cls) {
+  if (!ele.classList.contains(cls)) {
+    ele.classList.add(cls);
+  }
+}
+
+function removeElementCls(ele, cls) {
+  if (ele.classList.contains(cls)) {
+    ele.classList.remove(cls);
+  }
+}
+
+function clickBookReadBtn(event) {
+  let readBtn = event.srcElement;
+  let bookItem = myLibrary[readBtn.getAttribute(bookIdAttrName)];
+  bookItem['book'].isRead = true;
+  let bookTitle = bookItem['DOM'].querySelector('.book-title');
+  if (readBtn.classList.contains('book-read-btn-unread')) {
+    removeElementCls(readBtn, 'book-read-btn-unread');
+    removeElementCls(bookTitle, 'book-title-read');
+  } else {
+    addElementCls(readBtn, 'book-read-btn-unread');
+    addElementCls(bookTitle, 'book-title-read');
+  }
+}
+
+function createBookItemDOM(book, bookIdx) {
   let bookListItem, bookInfo, bookTitle, bookSubInfo, bookAuthor, bookPages, bookBtn;
   let readBtn, removeBtn;
   [bookListItem, bookInfo, bookTitle, bookSubInfo, bookAuthor, bookPages, bookBtn] =
@@ -123,6 +178,13 @@ function createBookItemDOM(book) {
     bookTitle.classList.add('book-title-read');
   }
 
+  bookListItem.setAttribute(bookIdAttrName, bookIdx);
+  readBtn.setAttribute(bookIdAttrName, bookIdx);
+  removeBtn.setAttribute(bookIdAttrName, bookIdx);
+
+  readBtn.addEventListener('click', clickBookReadBtn);
+  removeBtn.addEventListener('click', clickBookRemoveBtn);
+
   bookListItem.append(bookInfo, bookBtn);
   bookInfo.append(bookTitle, bookSubInfo);
   bookSubInfo.append(bookAuthor, bookPages);
@@ -131,41 +193,11 @@ function createBookItemDOM(book) {
   return bookListItem;
 }
 
-function clearBookList() {
-  bookList.innerHTML = '';
-}
-
-function displayAllBooks() {
-  for (book of myLibrary) {
-    let bookDOM = createBookItemDOM(book);
-    bookList.append(bookDOM);
-  }
-}
-
-function displayBookList() {
-  displayBookCounter();
-  clearBookList();
-  displayAllBooks()
-}
-
 function clickBookAddBtn() {
   addBookFromInput();
   displayBookList();
 }
 
-function removeBook(book) {
-
-}
-
-function removeBookDOM() {
-
-}
-
-function clickBookRemoveBtn() {
-  let book;
-  removeBook(book);
-  removeBookDOM();
-}
-
 addBookBtn.addEventListener('click', clickBookAddBtn);
-displayBookCounter();
+
+displayBookList();
