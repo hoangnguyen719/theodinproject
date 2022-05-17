@@ -6,7 +6,7 @@
 body {
   --default-font-size: 1.5rem;
   --body-background: aquamarine;
-  --body-background-off: rgb(58, 116, 96);
+  --body-background-off: rgb(90, 172, 143);
   --game-cell-size: calc(7 * var(--default-font-size));
   --game-cell-border: 0.25rem solid grey;
   --game-cell-background: var(--body-background);
