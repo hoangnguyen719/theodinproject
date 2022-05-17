@@ -26,6 +26,7 @@ function Player(playerName, playerSymbol, domID) {
     playerInfoDOM = DOM;
   }
   function displayScore() {
+    playerInfoDOM.querySelector('div.player-name').innerHTML = `Player ${name}`;
     playerInfoDOM.querySelector('div.player-score').innerHTML = score;
   }
 
@@ -55,14 +56,10 @@ let gameBoard = (() => {
       , board.map((v, i) => v[board.length - 1 - i])
     ]
   }
-  function _returnBoard() {
-    return board;
-  }
   function resetBoard() {
     for (let i = 0; i < 3; i++) {
       board[i] = Array(3).fill(undefined);
     }
-    // board = [['x', 'x', 'x'],[4,5,6],[7,8,9]];
   }
   function updateGameBoard(row, col, value) {
     board[row][col] = value;
@@ -70,7 +67,7 @@ let gameBoard = (() => {
   function checkBoardFull() {
     return !board.some(row => row.includes(undefined));
   }
-  function checkThree(value) {
+  function checkThreeInARow(value) {
     let possibleThrees = _returnPossibleThrees();
     return possibleThrees.some(three => {
       return three.every(cell => cell === value)
@@ -81,22 +78,17 @@ let gameBoard = (() => {
     updateGameBoard
     , resetBoard
     , checkBoardFull
-    , checkThree
-    // , _returnBoard
-    // , _returnPossibleThrees
+    , checkThreeInARow
   };
 })();
 
-let gameController = ((board) => {
+let gameController = ((board, boardDOM, player1, player2, resetBtn, restartBtn) => {
   const _imageLookUp = {
     'x': 'images/cross.svg'
     , 'o': 'images/circle.svg'
   }
-  let player1 = Player('X', 'x', '#player-1');
-  let player2 = Player('O', 'o', '#player-2');
+  const availCellCls = 'game-cell-available';
   let currentPlayer = player1;
-
-  const boardCells = document.querySelectorAll('.game-cell');
 
   function _switchTurn() {
     currentPlayer = currentPlayer === player2 ? player1 : player2;
@@ -104,8 +96,11 @@ let gameController = ((board) => {
   function _returnCurrentPlayerImg() {
     return _imageLookUp[currentPlayer.returnSymbol()]
   }
+  function _cellDOMAvailable(cell) {
+    return cell.classList.contains(availCellCls)
+  }
   function _checkCellEmpty(cell) {
-    return !cell.querySelector('img');
+    return (!cell.querySelector('img')) && (_cellDOMAvailable(cell));
   }
   function _updateGameBoard(row, col) {
     row = typeof row === 'string' ? Number(row) : row;
@@ -118,9 +113,9 @@ let gameController = ((board) => {
     cell.appendChild(img);
   }
   function _checkWinner() {
-    if (board.checkThree(player1.returnSymbol())) {
+    if (board.checkThreeInARow(player1.returnSymbol())) {
       return player1;
-    } else if (board.checkThree(player2.returnSymbol())) {
+    } else if (board.checkThreeInARow(player2.returnSymbol())) {
       return player2;
     } else if (board.checkBoardFull()) {
       return 'draw';
@@ -128,58 +123,93 @@ let gameController = ((board) => {
       return false;
     }
   }
-  function _announceWinner(winner) {
+  function _announce(message) {
     const announceDiv = document.querySelector('#announcement');
-    announceDiv.innerHTML =
-      winner === 'draw'
-        ? "It's a Draw!"
-        : `Player ${winner.returnName()} Wins!`;
+    announceDiv.innerHTML = message;
   }
-  function _displayScore() {
+  function _announceWinner(winner) {
+    _announce(winner === 'draw'
+        ? "It's a Draw!"
+        : `Player ${winner.returnName()} Wins!`
+    );
+  }
+  function _displayScores() {
     player1.displayScore();
     player2.displayScore();
   }
   function _updateScore(winner) {
     if (winner !== 'draw') {
       winner.updateScore();
-      _displayScore()
+      _displayScores()
     }
+  }
+  function _makeCellAvailable(cell) {
+    if (!_cellDOMAvailable(cell)) {
+      cell.classList.add(availCellCls)
+    }
+  }
+  function _makeCellUnavailable(cell) {
+    if (_cellDOMAvailable(cell)) {
+      cell.classList.remove(availCellCls);
+    }
+  }
+  function _makeAllCellsUnavailable() {
+    boardDOM.forEach(_makeCellUnavailable);
+  }
+  function _announceTurn(player) {
+    _announce(`Player ${player.returnName()}'s Turn`);
   }
   function _boardCellDOMClick(cell) {
     if (_checkCellEmpty(cell)) {
       _updateGameBoard(cell.getAttribute('row'), cell.getAttribute('col'));
       _updateCellDOM(cell);
+      _makeCellUnavailable(cell);
       let winner = _checkWinner();
       if (winner) {
+        _makeAllCellsUnavailable();
         _announceWinner(winner);
         _updateScore(winner);
-        // Make all cells unavailable
       } else {
         _switchTurn();
+        _announceTurn(currentPlayer);
       }
     }
   }
 
   function _resetBoardDOM() {
-
+    boardDOM.forEach(cell => {
+      cell.innerHTML = '';
+      _makeCellAvailable(cell);
+    });
   }
-  function newGame() {
+  function _restartBtnClick() {
     _resetBoardDOM();
     board.resetBoard();
+    currentPlayer = player1;
+    _announceTurn(currentPlayer);
   }
-  function resetGame() {
-
+  function _resetBtnClick() {
+    _restartBtnClick();
+    player1.resetScore();
+    player2.resetScore();
+    _displayScores();
   }
-  function updateScoreBoard() {
 
-  }
-
-  boardCells.forEach(cell => {
+  boardDOM.forEach(cell => {
     cell.addEventListener('click', function() {
-      _boardCellDOMClick(this);
+      _boardCellDOMClick(cell);
     });
   })
+  resetBtn.addEventListener('click', _resetBtnClick);
+  restartBtn.addEventListener('click', _restartBtnClick);
+  _restartBtnClick();
   return {
-    _checkWinner
   };
-})(gameBoard);
+})(
+  gameBoard
+  , document.querySelectorAll('.game-cell')
+  , Player('X', 'x', '#player-1')
+  , Player('O', 'o', '#player-2')
+  , document.querySelector('#reset-btn')
+  , document.querySelector('#restart-btn')
+  );

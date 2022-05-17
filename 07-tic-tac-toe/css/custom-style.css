@@ -3,10 +3,19 @@
   src: url('../../font-families/Roboto/Roboto-Light.woff')
 }
 
+html, body {
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
 body {
   --default-font-size: 1.5rem;
   --body-background: aquamarine;
   --body-background-off: rgb(90, 172, 143);
+  --title-font-size: 4rem;
+  --player-name-font-size: 2rem;
+  --player-score-font-size: 1.5rem;
+  --announcement-font-size: 2rem;
   --game-cell-size: calc(7 * var(--default-font-size));
   --game-cell-border: 0.25rem solid grey;
   --game-cell-background: var(--body-background);
@@ -14,12 +23,17 @@ body {
   --button-background: rgb(13, 126, 120);
   --button-background-off: rgb(7, 71, 68);
   background: var(--body-background);
-  padding: 2rem;
+  padding: 1rem;
+  gap: 1rem;
 }
 
 body * {
   font-size: var(--default-font-size);
   font-family: 'Roboto', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+a {
+  color: black;
 }
 
 button {
@@ -53,16 +67,38 @@ button:hover {
 
 #main-content {
   gap: 2rem;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  flex-basis: 0;
+}
+
+#title {
+  font-size: var(--title-font-size);
 }
 
 #scoreboard {
   gap: 1.5rem;
-  width: 100%;
 }
 
 #players {
   width: 100%;
   justify-content: space-between;
+  gap: 20rem;
+}
+
+.player-name {
+  font-size: var(--player-name-font-size);
+  /* font-weight: bold; */
+}
+
+.player-score {
+  font-size: var(--player-score-font-size);
+}
+
+#announcement {
+  font-size: var(--announcement-font-size);
+  font-weight: bold;
 }
 
 #game {
@@ -113,4 +149,9 @@ button:hover {
 .game-cell img {
   width: 80%;
   height: 80%;
+}
+
+#credit,
+#credit * {
+  font-size: 1rem;
 }
