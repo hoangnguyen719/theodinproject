@@ -80,6 +80,9 @@ button:hover {
 
 .game-cell {
   box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .game-cell.game-cell-available:hover {
@@ -87,22 +90,27 @@ button:hover {
   cursor: pointer;
 }
 
-.game-cell-top,
-.game-cell-central {
+.game-cell[row="0"],
+.game-cell[row="1"] {
   border-bottom: var(--game-cell-border);
 }
 
-.game-cell-bottom
-, .game-cell-central {
+.game-cell[row="2"]
+, .game-cell[row="1"] {
   border-top: var(--game-cell-border);
 }
 
-.game-cell-left,
-.game-cell-middle {
+.game-cell[col="0"],
+.game-cell[col="1"] {
   border-right: var(--game-cell-border);
 }
 
-.game-cell-right,
-.game-cell-middle {
+.game-cell[col="2"],
+.game-cell[col="1"] {
   border-left: var(--game-cell-border);
+}
+
+.game-cell img {
+  width: 80%;
+  height: 80%;
 }

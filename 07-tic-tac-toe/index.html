@@ -32,18 +32,25 @@
     <div id="announcement">Player 1 wins!</div>
     <div id="game" class="flex-column flex-center">
       <div id="game-board">
-        <div class="game-cell game-cell-available game-cell-top game-cell-left"></div>
-        <div class="game-cell game-cell-available game-cell-top game-cell-middle"></div>
-        <div class="game-cell game-cell-available game-cell-top game-cell-right"></div>
-        <div class="game-cell game-cell-available game-cell-central game-cell-left"></div>
-        <div class="game-cell game-cell-available game-cell-central game-cell-middle"></div>
-        <div class="game-cell game-cell-available game-cell-central game-cell-right"></div>
-        <div class="game-cell game-cell-available game-cell-bottom game-cell-left"></div>
-        <div class="game-cell game-cell-available game-cell-bottom game-cell-middle"></div>
-        <div class="game-cell game-cell-available game-cell-bottom game-cell-right"></div>
+        <div row="0" col="0" class="game-cell game-cell-available">
+          <img src="images/cross.svg" alt="" style="width:80%;height:80%">
+        </div>
+        <div row="0" col="1" class="game-cell game-cell-available">
+          <img src="images/circle.svg" alt="" style="width:80%;height:80%">
+        </div>
+        <div row="0" col="2" class="game-cell game-cell-available"></div>
+        <div row="1" col="0" class="game-cell game-cell-available"></div>
+        <div row="1" col="1" class="game-cell game-cell-available"></div>
+        <div row="1" col="2" class="game-cell game-cell-available"></div>
+        <div row="2" col="0" class="game-cell game-cell-available"></div>
+        <div row="2" col="1" class="game-cell game-cell-available"></div>
+        <div row="2" col="2" class="game-cell game-cell-available"></div>
       </div>
       <button type="button" id="restart-btn">Start</button>
     </div>
+  </div>
+  <div>
+    Image logo taken from <a href="https://www.svgrepo.com/">SVG Repo</a>
   </div>
 </body>
 </html>
