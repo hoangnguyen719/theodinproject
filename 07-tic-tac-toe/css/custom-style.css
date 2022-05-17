@@ -1,0 +1,108 @@
+@font-face {
+  font-family: 'Roboto';
+  src: url('../../font-families/Roboto/Roboto-Light.woff')
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  --default-font-size: 1.5rem;
+  --body-background: aquamarine;
+  --body-background-off: rgb(58, 116, 96);
+  --game-cell-size: calc(7 * var(--default-font-size));
+  --game-cell-border: 0.25rem solid grey;
+  --game-cell-background: var(--body-background);
+  --game-cell-background-off: var(--body-background-off);
+  --button-background: rgb(13, 126, 120);
+  --button-background-off: rgb(7, 71, 68);
+  background: var(--body-background);
+}
+
+body * {
+  font-size: var(--default-font-size);
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+button {
+  background: var(--button-background);
+  cursor: pointer;
+  color: white;
+  padding: 0.5rem 1.5rem;
+  border: none;
+  border-radius: 2rem;
+  font-weight: bold;
+}
+
+button:hover {
+  background: var(--button-background-off);
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-center {
+  justify-content: center;
+  align-items: center;
+}
+
+#main-content {
+  gap: 2rem;
+}
+
+#scoreboard {
+  gap: 1.5rem;
+  width: 100%;
+}
+
+#players {
+  width: 100%;
+  justify-content: space-between;
+}
+
+#game-board {
+  display: grid;
+  height: calc(3 * var(--game-cell-size));
+  width: calc(3 * var(--game-cell-size));
+  grid-template-columns: repeat(3, var(--game-cell-size));
+  grid-template-rows: repeat(3, var(--game-cell-size));
+  background: var(--game-cell-background);
+}
+
+.game-cell {
+  box-sizing: border-box;
+}
+
+.game-cell.game-cell-available:hover {
+  background-color: var(--body-background-off);
+  cursor: pointer;
+}
+
+.game-cell-top,
+.game-cell-central {
+  border-bottom: var(--game-cell-border);
+}
+
+.game-cell-bottom
+, .game-cell-central {
+  border-top: var(--game-cell-border);
+}
+
+.game-cell-left,
+.game-cell-middle {
+  border-right: var(--game-cell-border);
+}
+
+.game-cell-right,
+.game-cell-middle {
+  border-left: var(--game-cell-border);
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tic-tac-toe</title>
+  <link rel="icon" href="images/logo.jpg">
+  <link rel="stylesheet" href="../general-styles/meyer-reset.css">
+  <link rel="stylesheet" href="../general-styles/additional-style-reset.css">
+  <link rel="stylesheet" href="css/custom-style.css">
+  <script src="js/functions.js" defer></script>
+</head>
+<body class="flex-column flex-center">
+  <div id="main-content" class="flex-column flex-center">
+    <div id="title">
+      Welcome to Tic-Tac-Toe
+    </div>
+    <div id="scoreboard" class="flex-column flex-center">
+      <div id="players" class="flex-row flex-center">
+        <div id="player-1" class="player-info flex-column flex-center">
+          <div class="player-score">0</div>
+          <div class="player-name">Player 1</div>
+        </div>
+        <div id="player-2" class="player-info flex-column flex-center">
+          <div class="player-score">0</div>
+          <div class="player-name">Player 2</div>
+        </div>
+      </div>
+      <button type="button" id="reset-btn">Reset Game</button>
+    </div>
+    <div id="announcement">Player 1 wins!</div>
+    <div id="game" class="flex-column flex-center">
+      <div id="game-board">
+        <div class="game-cell game-cell-available game-cell-top game-cell-left"></div>
+        <div class="game-cell game-cell-available game-cell-top game-cell-middle"></div>
+        <div class="game-cell game-cell-available game-cell-top game-cell-right"></div>
+        <div class="game-cell game-cell-available game-cell-central game-cell-left"></div>
+        <div class="game-cell game-cell-available game-cell-central game-cell-middle"></div>
+        <div class="game-cell game-cell-available game-cell-central game-cell-right"></div>
+        <div class="game-cell game-cell-available game-cell-bottom game-cell-left"></div>
+        <div class="game-cell game-cell-available game-cell-bottom game-cell-middle"></div>
+        <div class="game-cell game-cell-available game-cell-bottom game-cell-right"></div>
+      </div>
+      <button type="button" id="restart-btn">Start</button>
+    </div>
+  </div>
+</body>
+</html>
