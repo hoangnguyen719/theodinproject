@@ -1,9 +1,9 @@
 
-function Player(playerName, playerSymbol) {
+function Player(playerName, playerSymbol, domID) {
   let score = 0;
   let name = playerName;
   let symbol = playerSymbol;
-  let playerInfoDOM;
+  let playerInfoDOM = document.querySelector(domID);
   function updateScore() {
     score++;
   }
@@ -20,7 +20,13 @@ function Player(playerName, playerSymbol) {
     name = newName;
   }
   function returnSymbol() {
-    return symbol
+    return symbol;
+  }
+  function updateInfoDOM(DOM) {
+    playerInfoDOM = DOM;
+  }
+  function displayScore() {
+    playerInfoDOM.querySelector('div.player-score').innerHTML = score;
   }
 
   return {
@@ -30,6 +36,8 @@ function Player(playerName, playerSymbol) {
     , returnName
     , updateName
     , returnSymbol
+    , updateInfoDOM
+    , displayScore
   };
 }
 
@@ -84,14 +92,14 @@ let gameController = ((board) => {
     'x': 'images/cross.svg'
     , 'o': 'images/circle.svg'
   }
-  let playerX = Player('X', 'x');
-  let playerO = Player('O', 'o');
-  let currentPlayer = playerX;
+  let player1 = Player('X', 'x', '#player-1');
+  let player2 = Player('O', 'o', '#player-2');
+  let currentPlayer = player1;
 
   const boardCells = document.querySelectorAll('.game-cell');
 
   function _switchTurn() {
-    currentPlayer = currentPlayer === playerO ? playerX : playerO;
+    currentPlayer = currentPlayer === player2 ? player1 : player2;
   }
   function _returnCurrentPlayerImg() {
     return _imageLookUp[currentPlayer.returnSymbol()]
@@ -109,7 +117,7 @@ let gameController = ((board) => {
     img['src'] = _returnCurrentPlayerImg();
     cell.appendChild(img);
   }
-  function _checkWinner(player1, player2) {
+  function _checkWinner() {
     if (board.checkThree(player1.returnSymbol())) {
       return player1;
     } else if (board.checkThree(player2.returnSymbol())) {
@@ -125,13 +133,17 @@ let gameController = ((board) => {
     announceDiv.innerHTML =
       winner === 'draw'
         ? "It's a Draw!"
-        : `Player ${player.returnName()} Wins!`;
+        : `Player ${winner.returnName()} Wins!`;
   }
-  function _displayScore(player) {
-
+  function _displayScore() {
+    player1.displayScore();
+    player2.displayScore();
   }
-  function _updateScore() {
-
+  function _updateScore(winner) {
+    if (winner !== 'draw') {
+      winner.updateScore();
+      _displayScore()
+    }
   }
   function _boardCellDOMClick(cell) {
     if (_checkCellEmpty(cell)) {
@@ -140,7 +152,7 @@ let gameController = ((board) => {
       let winner = _checkWinner();
       if (winner) {
         _announceWinner(winner);
-        // Update score
+        _updateScore(winner);
         // Make all cells unavailable
       } else {
         _switchTurn();
