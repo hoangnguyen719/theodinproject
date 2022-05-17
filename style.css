@@ -31,7 +31,8 @@ a:visited {
   color: var(--default-text-color);
 }
 
-a:active {
+a:active,
+a:hover {
   color: blue;
 }
 
