@@ -3,11 +3,6 @@
   src: url('../../font-families/Roboto/Roboto-Light.woff')
 }
 
-html, body {
-  height: 100%;
-  width: 100%;
-}
-
 body {
   --default-font-size: 1.5rem;
   --body-background: aquamarine;
@@ -19,6 +14,7 @@ body {
   --button-background: rgb(13, 126, 120);
   --button-background-off: rgb(7, 71, 68);
   background: var(--body-background);
+  padding: 2rem;
 }
 
 body * {
@@ -67,6 +63,10 @@ button:hover {
 #players {
   width: 100%;
   justify-content: space-between;
+}
+
+#game {
+  gap: 1.5rem;
 }
 
 #game-board {
