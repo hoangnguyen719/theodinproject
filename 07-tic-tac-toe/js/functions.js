@@ -1,4 +1,3 @@
-
 function Player(playerName, playerSymbol, domID) {
   let score = 0;
   let name = playerName;
@@ -10,21 +9,21 @@ function Player(playerName, playerSymbol, domID) {
   function resetScore() {
     score = 0;
   }
-  function returnScore() {
-    return score;
-  }
+  // function returnScore() {
+  //   return score;
+  // }
   function returnName() {
     return name;
   }
-  function updateName(newName) {
-    name = newName;
-  }
+  // function updateName(newName) {
+  //   name = newName;
+  // }
   function returnSymbol() {
     return symbol;
   }
-  function updateInfoDOM(DOM) {
-    playerInfoDOM = DOM;
-  }
+  // function updateInfoDOM(DOM) {
+  //   playerInfoDOM = DOM;
+  // }
   function displayScore() {
     playerInfoDOM.querySelector('div.player-name').innerHTML = `Player ${name}`;
     playerInfoDOM.querySelector('div.player-score').innerHTML = score;
@@ -33,11 +32,11 @@ function Player(playerName, playerSymbol, domID) {
   return {
     updateScore
     , resetScore
-    , returnScore
+    // , returnScore
     , returnName
-    , updateName
+    // , updateName
     , returnSymbol
-    , updateInfoDOM
+    // , updateInfoDOM
     , displayScore
   };
 }
@@ -87,7 +86,7 @@ let gameController = ((board, boardDOM, player1, player2, resetBtn, restartBtn) 
     'x': 'images/cross.svg'
     , 'o': 'images/circle.svg'
   }
-  const availCellCls = 'game-cell-available';
+  const _availCellCls = 'game-cell-available';
   let currentPlayer = player1;
 
   function _switchTurn() {
@@ -97,7 +96,7 @@ let gameController = ((board, boardDOM, player1, player2, resetBtn, restartBtn) 
     return _imageLookUp[currentPlayer.returnSymbol()]
   }
   function _cellDOMAvailable(cell) {
-    return cell.classList.contains(availCellCls)
+    return cell.classList.contains(_availCellCls)
   }
   function _checkCellEmpty(cell) {
     return (!cell.querySelector('img')) && (_cellDOMAvailable(cell));
@@ -145,12 +144,12 @@ let gameController = ((board, boardDOM, player1, player2, resetBtn, restartBtn) 
   }
   function _makeCellAvailable(cell) {
     if (!_cellDOMAvailable(cell)) {
-      cell.classList.add(availCellCls)
+      cell.classList.add(_availCellCls)
     }
   }
   function _makeCellUnavailable(cell) {
     if (_cellDOMAvailable(cell)) {
-      cell.classList.remove(availCellCls);
+      cell.classList.remove(_availCellCls);
     }
   }
   function _makeAllCellsUnavailable() {
@@ -203,8 +202,7 @@ let gameController = ((board, boardDOM, player1, player2, resetBtn, restartBtn) 
   resetBtn.addEventListener('click', _resetBtnClick);
   restartBtn.addEventListener('click', _restartBtnClick);
   _restartBtnClick();
-  return {
-  };
+  return {};
 })(
   gameBoard
   , document.querySelectorAll('.game-cell')
